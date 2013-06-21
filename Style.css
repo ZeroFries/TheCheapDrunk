@@ -1,0 +1,57 @@
+body{
+}
+
+h1{
+		text-align: center;
+		font:  bold 38px Lily Script One, Arial, sans-serif;
+		text-decoration: underline;
+}
+
+h2{
+		width: 60%;
+		margin: auto;
+		color: #8c8c8c;
+  	font-family: 18px Georgia, Times, 'Times New Roman', serif;
+  	font-style: italic;
+
+}
+
+.products{
+	  margin: 200px;
+}
+
+.product{
+	  background: white;
+		border: darkgreen 3px solid;
+		border-radius: 8px;
+		margin: 20px auto;
+		position: relative;
+		box-shadow: 5px 5px 5px 2px #ccc, inset 0 0 10px 3px #000000;
+		-webkit-transition: 0.6s all ease-in-out;
+}
+
+.product .product_thumbnail{
+	  background-image: url('http://fineartamerica.com/images-medium/wine-silhouette-tom-mc-nemar.jpg');
+	  background-size: 125px 125px;
+		background-repeat:no-repeat;
+		width: 125px;
+		height: 125px;
+		margin: 10px 10px;
+		float: left;
+		box-shadow:         inset 0 0 10px #000000;
+}
+
+.product .hammered{
+		width: 150px;
+		height:125px;
+		position: absolute;
+		right: 10px;
+		bottom: 10px;
+		border: 2px solid black;
+		text-align: center;
+}
+
+.product .hammered p{
+		padding: 8px;
+		font: 18px Pathway Gothic One, sans-serif;
+}
