@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+	<title>The Cheap Drunk</title>
+	<link rel="stylesheet" href="./Style.css"/>
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|Lily+Script+One' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	<header class="top">
+		<div id="top-bar"></div>
+		<div id="nav-bar">
+			<ul class="nav-links">
+				<a href="/all"><li><strong>ALL</strong></li></a>
+				<a href="/beer"><li><strong>BEER</strong></li></a>
+				<a href="/wine"><li><strong>WINE</strong></li></a>
+				<a href="/cider"><li><strong>CIDER</strong></li></a>
+				<a href="/coolers"><li><strong>COOLERS</strong></li></a>
+				<a href="/vodka"><li><strong>VODKA</strong></li></a>
+				<a href="/rum"><li><strong>RUM</strong></li></a>
+				<a href="/whiskey"><li><strong>WHISKEY</strong></li></a>
+				<a href="/gin"><li><strong>GIN</strong></li></a>
+			</ul>
+		</div>
+	</header>
+
+	<div class="products-container">
+
+		<ul class="products">
+		<% @beverages.each_with_index do |beverage, i| %>
+			<li>
+				<span class="list-number"><%= i %></span>
+			</li>
+		<% end %>	
+		</ul>
+	</div>
+</html>
