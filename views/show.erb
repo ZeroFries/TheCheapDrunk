@@ -3,6 +3,7 @@
 	<title>The Cheap Drunk</title>
 	<link rel="stylesheet" href="./Style.css"/>
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|Lily+Script+One' rel='stylesheet' type='text/css'>
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
 </head>
 
 <body>
@@ -21,12 +22,11 @@
 
 	<div class="products-container">
 
-		<ul class="products">
+		<ul class="products"> 
 		<% @beverages.each_with_index do |beverage, i| %>
-			<li class=<%= (i % 8).to_s %> style= <%= "width:#{beverage[:alcoholPrice]}" %>
-					<%= i > 19 ? "display\:none;" : "" %>>
+			<% display = "display:none;" if i > 19 %>
+			<li class=<%= "bg#{i % 8}" %> style= <%= "width:#{beverage[:alcoholPrice].to_i * 10}px;#{display}" %>>
 				<span class="list-number"><%= i + 1 %></span>
-				<!---<img <%= beverage[:thumb].size > 1 ? "src= #{beverage[:thumb]}" : "" %> class="product-thumbnail" alt="">-->
 				<h2 class="product-name"><%= beverage[:name] %></h2>
 				<!--<p class="product-details">
 					<%= "Price: $#{beverage[:price]}" %>
@@ -37,6 +37,11 @@
 		</ul>
 	</div>
 
+	<button class="show-more" style= <%= "display:none;" if @beverages.size <= 20 %>>Show More</button>
+
 	<div class ="footer" id="show">
 	</div>
+
+	<script src='../js/script.js'></script>
+</body>
 </html>
