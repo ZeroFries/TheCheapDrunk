@@ -10,15 +10,11 @@
 		<div id="top-bar"></div>
 		<div id="nav-bar">
 			<ul class="nav-links">
-				<a href="/all"><li><strong>ALL</strong></li></a>
-				<a href="/beer"><li><strong>BEER</strong></li></a>
-				<a href="/wine"><li><strong>WINE</strong></li></a>
-				<a href="/cider"><li><strong>CIDER</strong></li></a>
-				<a href="/coolers"><li><strong>COOLERS</strong></li></a>
-				<a href="/vodka"><li><strong>VODKA</strong></li></a>
-				<a href="/rum"><li><strong>RUM</strong></li></a>
-				<a href="/whiskey"><li><strong>WHISKEY</strong></li></a>
-				<a href="/gin"><li><strong>GIN</strong></li></a>
+				<% categories = ["all", "beer", "wine", "vodka", "whiskey", "cider", "rum", "gin", "coolers"] %>
+				<% categories.each do |category| %>
+					<a href=<%= "#{category}" %>>
+						<li id=<%= category == @cat ? "active" : "" %>><strong><%= "#{category.upcase}" %></strong></li></a>
+				<% end %>
 			</ul>
 		</div>
 	</header>
@@ -27,10 +23,20 @@
 
 		<ul class="products">
 		<% @beverages.each_with_index do |beverage, i| %>
-			<li>
-				<span class="list-number"><%= i %></span>
+			<li class=<%= (i % 8).to_s %> style= <%= "width:#{beverage[:alcoholPrice]}" %>
+					<%= i > 19 ? "display\:none;" : "" %>>
+				<span class="list-number"><%= i + 1 %></span>
+				<!---<img <%= beverage[:thumb].size > 1 ? "src= #{beverage[:thumb]}" : "" %> class="product-thumbnail" alt="">-->
+				<h2 class="product-name"><%= beverage[:name] %></h2>
+				<!--<p class="product-details">
+					<%= "Price: $#{beverage[:price]}" %>
+					<%= "Size: #{beverage[:container]}" %>
+					<%= "Alcohol: #{beverage[:alcohol]}%" %> -->
 			</li>
 		<% end %>	
 		</ul>
+	</div>
+
+	<div class ="footer" id="show">
 	</div>
 </html>
