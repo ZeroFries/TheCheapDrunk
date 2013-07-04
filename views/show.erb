@@ -11,6 +11,7 @@
 		<div id="top-bar"></div>
 		<div id="nav-bar">
 			<ul class="nav-links">
+				<a href="/"><li><strong>HOME</strong></li></a>
 				<% categories = ["all", "beer", "wine", "vodka", "whiskey", "cider", "rum", "gin", "coolers"] %>
 				<% categories.each do |category| %>
 					<a href=<%= "#{category}" %>>
@@ -28,10 +29,11 @@
 			<li class=<%= "bg#{i % 8}" %> style= <%= "width:#{beverage[:alcoholPrice].to_i * 10}px;#{display}" %>>
 				<span class="list-number"><%= i + 1 %></span>
 				<h2 class="product-name"><%= beverage[:name] %></h2>
-				<!--<p class="product-details">
-					<%= "Price: $#{beverage[:price]}" %>
-					<%= "Size: #{beverage[:container]}" %>
-					<%= "Alcohol: #{beverage[:alcohol]}%" %> -->
+				<div class="tooltip">
+					<%= "Price: $#{beverage[:price]}" %><br>
+					<%= "Size: #{beverage[:container]}" %><br>
+					<%= "Alcohol: #{beverage[:alcohol]}%" %>
+				</div>
 			</li>
 		<% end %>	
 		</ul>

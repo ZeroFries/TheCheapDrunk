@@ -5,7 +5,14 @@
   $ = jQuery;
 
   $(document).ready(function() {
-    console.log("hi");
+    var xOffset, yOffset;
+    xOffset = 30;
+    yOffset = 100;
+    $('.products li').mousemove(function(e) {
+      var parentOffset;
+      parentOffset = $(this).offset();
+      return $(this).children('.tooltip').css("top", (e.pageY - yOffset - parentOffset.top) + "px").css("left", (e.pageX + xOffset - parentOffset.left) + "px");
+    });
     return $('button.show-more').bind("click", function() {
       var counter;
       counter = 20;
