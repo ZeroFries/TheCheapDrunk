@@ -26,7 +26,8 @@ def create_array(cat) # creates an array of beverages (a hash of properties)
 				thumb: contents[2], 
 				container: contents[3],
 				alcohol: convert_to_percentage(contents[4]),
-				alcoholPrice: convert_cents_to_dollars(contents[5]) }
+				alcoholPrice: convert_cents_to_dollars(contents[5]),
+				id: contents[6] }
 			arr << hash
 			counter -= 1
 		end

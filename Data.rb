@@ -74,4 +74,8 @@ class Hash
 	def price_to_get_drunk
 		self.price_of_alcohol / 8
 	end
+
+	def product_id
+		self["id"]
+	end
 end

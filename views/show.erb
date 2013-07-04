@@ -26,9 +26,13 @@
 		<ul class="products"> 
 		<% @beverages.each_with_index do |beverage, i| %>
 			<% display = "display:none;" if i > 19 %>
-			<li class=<%= "bg#{i % 8}" %> style= <%= "width:#{beverage[:alcoholPrice].to_i * 10}px;#{display}" %>>
+			<% beverage[:alcoholPrice].to_f > 110 ? barwidth = 100 : barwidth = beverage[:alcoholPrice].to_f - 10 %>
+			<li class=<%= "bg#{i % 8}" %> style= <%= "width:#{barwidth}%;"+
+			"#{display}" %>>
 				<span class="list-number"><%= i + 1 %></span>
-				<h2 class="product-name"><%= beverage[:name] %></h2>
+				<a href=<%= "http://lcbo.com/lcbo-ear/lcbo/product/details.do?language=EN&itemNumber=#{beverage[:id]}" %>>
+					<h2 class="product-name"><%= beverage[:name] %></h2>
+				</a>
 				<div class="tooltip">
 					<%= "Price: $#{beverage[:price]}" %><br>
 					<%= "Size: #{beverage[:container]}" %><br>
@@ -42,8 +46,13 @@
 	<button class="show-more" style= <%= "display:none;" if @beverages.size <= 20 %>>Show More</button>
 
 	<div class ="footer" id="show">
+		<p id="author-tag">Created by Stuart Garvagh - &copy; 2013</p>
+		<ul class="social">
+			<a href="https://www.facebook.com/stuart.garvagh"><li id="fb"></li></a>
+			<a href="https://twitter.com/StuartGarvagh"><li id="twitter"></li></a>
+		</ul>
 	</div>
 
-	<script src='../js/script.js'></script>
+	<script src='/js/script.js'></script>
 </body>
 </html>
