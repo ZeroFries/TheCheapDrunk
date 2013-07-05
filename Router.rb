@@ -1,7 +1,6 @@
 require_relative ("Data.rb")
 require_relative ("FileGen.rb")
 
-# type "ruby Router.rb [category]"
 # lists first 100 products of the category sorted by ppa
 # categories:
 # all
