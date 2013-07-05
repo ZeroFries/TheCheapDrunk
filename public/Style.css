@@ -159,11 +159,11 @@ body{
 /* ----- FOOTER ----- */
 
 .footer#index{
-	position: absolute;
+	position: fixed;
 }
 
 .footer#show{
-	position: relative;
+	position: fixed;
 }
 
 .footer{
