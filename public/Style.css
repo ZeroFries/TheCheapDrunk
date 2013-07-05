@@ -163,7 +163,7 @@ body{
 }
 
 .footer#show{
-	position: relative;
+	position: fixed;
 }
 
 .footer{
