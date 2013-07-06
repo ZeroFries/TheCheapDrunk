@@ -31,65 +31,18 @@ def create_array(cat) # creates an array of beverages (a hash of properties)
 			arr << hash
 			counter -= 1
 		end
-    counter = 100 if line.include? "**#{cat}**"
+    counter = 100 if line.include? "**#{cat}**" #reads up to 100 beverages
   end
   arr
 end
 
-get '/' do
-	erb :index
-end
+categories = ["all", "beer", "wine", "vodka", "whiskey", "cider", "rum", "gin", "coolers"]
 
-get '/all' do
-	@cat = "all"
-	@beverages = create_array @cat
-	erb :show
-end
-
-get '/wine' do
-	@cat = "wine"
-	@beverages = create_array @cat
-	erb :show
-end
-
-get '/beer' do
-	@cat = "beer"
-	@beverages = create_array @cat
-	erb :show
-end
-
-get '/vodka' do
-	@cat = "vodka"
-	@beverages = create_array @cat
-	erb :show
-end
-
-get '/whiskey' do
-	@cat = "whiskey"
-	@beverages = create_array @cat
-	erb :show
-end
-
-get '/cider' do
-	@cat = "cider"
-	@beverages = create_array @cat
-	erb :show
-end
-
-get '/coolers' do
-	@cat = "coolers"
-	@beverages = create_array @cat
-	erb :show
-end
-
-get '/gin' do
-	@cat = "gin"
-	@beverages = create_array @cat
-	erb :show
-end
-
-get '/rum' do
-	@cat = "rum"
-	@beverages = create_array @cat
-	erb :show
+# create methods which handle get requests for each of the categories
+categories.each do |category|
+	get "/#{category}" do
+		@cat = category
+		@beverages = create_array category
+		erb :show
+	end
 end

@@ -27,8 +27,7 @@
 		<% @beverages.each_with_index do |beverage, i| %>
 			<% display = "display:none;" if i > 19 %>
 			<% beverage[:alcoholPrice].to_f > 110 ? barwidth = 100 : barwidth = beverage[:alcoholPrice].to_f - 10 %>
-			<li class=<%= "bg#{i % 8}" %> style= <%= "width:#{barwidth}%;"+
-			"#{display}" %>>
+			<li class=<%= "bg#{i % 8}" %> style= <%= "width:#{barwidth}%;#{display}" %>>
 				<span class="list-number"><%= i + 1 %></span>
 				<a href=<%= "http://lcbo.com/lcbo-ear/lcbo/product/details.do?language=EN&itemNumber=#{beverage[:id]}" %>>
 					<h2 class="product-name"><%= beverage[:name] %></h2>
