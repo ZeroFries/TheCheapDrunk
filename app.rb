@@ -36,6 +36,10 @@ def create_array(cat) # creates an array of beverages (a hash of properties)
   arr
 end
 
+get "/" do
+	erb :index
+end
+
 categories = ["all", "beer", "wine", "vodka", "whiskey", "cider", "rum", "gin", "coolers"]
 
 # create methods which handle get requests for each of the categories
