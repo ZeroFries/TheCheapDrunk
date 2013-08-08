@@ -1,3 +1,5 @@
+Address: http://cheapdrunk.herokuapp.com/
+
 basic features:
 list alcohol by price per alcohol (ppa) in litre (list all products by ppa)
 sort by category (list all beers by ppa)
@@ -9,5 +11,6 @@ Router/Data/FileGen handles the lcbo api
 	-FileGen stores the information gained in a textfile -> Beverages.txt
 
 app/views handles the actual web page
+	-Beverages.txt stores the model data (the model being a beverage)
 	-app is the controller, collecting information from Beverages.txt
 	-views displays the information
